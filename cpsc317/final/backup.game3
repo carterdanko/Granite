@@ -1,0 +1,116 @@
+<?
+$file="../gamelog";
+$file="/homes/cmd5414/public_html/cpsc317/final/gameoutputtest";
+$wordlist="/homes/cmd5414/public_html/cpsc317/final/dictwords";
+$w=fopen($wordlist, 'r');
+$o=file($file);
+$last=$o[count($o)-1];
+//print $last."hello from ".$file."<br>";
+//print $file." has ".count($o)." lines<br>";
+$words=explode(" ",$last);
+$first=$words[0];
+$data=$_GET["data"];
+$id=$_GET["id"];
+$player1count=0;
+$player1output="/homes/cmd5414/public_html/cpsc317/final/player1correct.txt";
+$pc=fopen($player1output,'a+');
+$player1guess="/homes/cmd5414/public_html/cpsc317/final/player1guess.txt";
+$pg=fopen($player1guess,'a+');
+$linecountcorrect=0;
+$linecountguess=0;
+while(!feof($pc)){
+ $linecorrect = fgets($pc);
+ $linecountcorrect++;
+ }
+while(!feof($pg)){
+ $lineguess = fgets($pg);
+ $linecountguess++;
+ }
+
+//echo $linecount;
+if (!isset($data)) $data="hello";
+if (!isset($id)) $id="0000000000";
+
+if ($linecountguess==3){
+echo '<script type="text/javascript"> alert("You have used all of your guesses!"); </script>';
+}
+
+if ($w) {
+   $array = explode("\n", fread($w, filesize($wordlist)));
+		//print_r(array_values($array));
+		foreach($array as $item){
+		$strlength=strlen($item);
+		$firstletter=substr($item, 0, -($strlength-1));
+		echo $firstletter;
+		for($i=0;$i<$strlength-2;$i++)
+		{
+			echo " _ ";
+		}
+		$lastletter=substr($item,-1);
+		echo $lastletter;
+		//echo $item;
+		echo "<br>";
+		}
+		
+		
+}
+
+
+
+if( strpos(file_get_contents($wordlist),$data) !== false) {
+        echo "<br><br>";
+		echo "You are correct in guessing: ";
+		echo $data;
+		echo "<br><br>";
+		$player1count++;
+		echo $player1count;
+		echo "<br><br>";
+		fwrite($pc,$data."\n");
+		fwrite($pg,$data."\n");
+   		fclose($pc);
+		fclose($pg);
+		echo "You have: ".$linecountcorrect." correct";
+		echo "<br>";
+		echo "You guessed a total number of ".$linecountguess." times";
+	 }
+	
+if( strpos(file_get_contents($wordlist),$data) == false) {
+        echo "<br><br>";
+		echo $data;
+		echo " is not a correct answer";
+		echo "<br><br>";
+		echo $player1count;
+		echo "<br><br>";
+		fwrite($pg,$data."\n");
+    		echo "You have: ".$linecountcorrect." correct";
+                echo "<br>";
+                echo "You guessed a total number of ".$linecountguess." times";
+		fclose($pc);
+                fclose($pg);
+
+	}
+if ($id==$first) {
+	//echo "you were the last person here<br>";
+}
+else{
+	//echo $id." not same as ".$first."<br>";
+//	we may enter this person's message and pass them the last message
+	$r=$_SERVER['REMOTE_ADDR'];
+
+	$idstring=$id." ".$r;
+	//echo "hello from granite! Your id is: ".$id.", and it";
+	//echo " appears you are coming from IP:".$r;
+	//echo "<br>you wrote: <blockquote>";
+	//echo $data;
+	//echo "</blockquote>";
+	//echo "The last person had id: ".$first;
+	//echo ", and they wrote: <br><blockquote>";
+	//for ($i=2;$i<count($words);$i++){
+	//	echo $words[$i]." ";
+	//}
+	//echo "</blockquote>";
+	$o=fopen($file, "a") or die ("couldn't open $file");
+	fwrite($o,$idstring." ".$data."\n");
+	//fclose($o);
+}
+?>

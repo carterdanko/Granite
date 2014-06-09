@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//ENtesting">
+<html>
+<head>
+<title>Calculator</title>
+</head>
+<body>
+ <h1>Carter Danko</h1>
+ <h4>Note that non-whole numbers will be rounded to nearest integer before computation<br>
+	Doing this instead of taking a float and taking everything to the left of the decimal, <br> 
+	would yield and input of 5.9 as 5 where as my method yields 6 and is more accurate for the user.</h4>
+ <table border="1">
+ <tr>
+  <th>Operand 1</th>
+	<th>  </th>
+	<th>Operand 2</th>
+	<th>  </th>
+	<th>Result</th>
+ </tr>
+ <tr>
+  <td><input type="text" id="op1" name="operand1">
+	<td><select id="mathmodule">
+	      <option value="plus">+</option>
+				<option value="subtract">-</option>
+				<option value="multiply">*</option>
+				<option value="divide">/</option>
+			  </select>
+	</td>
+	<td><input type="text" id="op2" name="operand2">
+	<td><button type="button" onclick="math()">=</button>
+	<td><input type="text" id="result" name="Result">
+ </tr>
+</table>
+
+<script>
+function math()
+{
+  var temp1 = document.getElementById("mathmodule");
+	var mathoperand = temp1.options[temp1.selectedIndex].value
+  if(mathoperand == "plus")
+	{
+	 add()
+	}
+	else if(mathoperand == "subtract")
+	{
+	 subtract()
+	}
+	else if(mathoperand == "multiply")
+	{
+	 multiply()
+	}
+	else if(mathoperand == "divide")
+	{
+	 divide()
+	}
+}
+function add()
+{
+  var temp1 = document.getElementById('op1').value
+  var temp2 = document.getElementById('op2').value
+	var input1 = parseFloat(temp1)
+	var input2 = parseFloat(temp2)
+	input1 = Math.round(input1)
+	input2 = Math.round(input2)
+	if(isNaN(input1)==false && isNaN(input2)==false)
+	{
+	var result = input1 + input2
+	document.getElementById('result').value=result
+	document.getElementById('op1').value=input1
+	document.getElementById('op2').value=input2
+	}
+	else
+	{
+	alert("That is not a valid integer")
+	document.getElementById('result').value="0"
+	}
+}
+
+function subtract()
+{
+  var temp1 = document.getElementById('op1').value
+  var temp2 = document.getElementById('op2').value
+	var input1 = parseFloat(temp1)
+	var input2 = parseFloat(temp2)
+	input1 = Math.round(input1)
+	input2 = Math.round(input2)
+	if(isNaN(input1)==false && isNaN(input2)==false)
+	{
+	var result = input1 - input2
+	document.getElementById('result').value=result
+	document.getElementById('op1').value=input1
+	document.getElementById('op2').value=input2
+	}
+	else
+	{
+	alert("That is not a valid integer")
+	document.getElementById('result').value="0"
+	}
+}
+
+function multiply()
+{
+  var temp1 = document.getElementById('op1').value
+  var temp2 = document.getElementById('op2').value
+	var input1 = parseFloat(temp1)
+	var input2 = parseFloat(temp2)
+	input1 = Math.round(input1)
+	input2 = Math.round(input2)
+	if(isNaN(input1)==false && isNaN(input2)==false)
+	{
+	var result = input1 * input2
+	document.getElementById('result').value=result
+	document.getElementById('op1').value=input1
+	document.getElementById('op2').value=input2
+	}
+	else
+	{
+	alert("That is not a valid integer")
+	document.getElementById('result').value="0"
+	}
+}
+
+function divide()
+{
+  var temp1 = document.getElementById('op1').value
+  var temp2 = document.getElementById('op2').value
+	var input1 = parseFloat(temp1)
+	var input2 = parseFloat(temp2)
+	input1 = Math.round(input1)
+	input2 = Math.round(input2)
+	if(isNaN(input1)==false && isNaN(input2)==false)
+	{
+	var result = input1 / input2
+	document.getElementById('result').value=result
+	document.getElementById('op1').value=input1
+	document.getElementById('op2').value=input2
+	}
+	else
+	{
+	alert("That is not a valid integer")
+	document.getElementById('result').value="0"
+	}
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC >
+<html>
+<head>
+<script>
+var winurl="http://cs.sru.edu/~cmd5414/cgi/assignment5A.sh"
+function redirect(){
+   winurl += "?" + document.getElementById("firstName").value + "+" + document.getElementById("lastName").value;
+   window.location= winurl;
+}
+</script>
+
+<title> Assignment 5 Part A</title>
+</head>
+
+<body onload = "">
+
+<h3 align = 'Center'> Assignment 5 Part A</h3>
+<p align = 'Center'> Returns percentage occurances of both first and last name based of the census
+<br>
+<br>
+<table>
+<form name = "f" >
+   <input type = "text" id = "firstName">
+   <input type = "text" id = "lastName">
+   <br>
+   <input type = "button" onclick = "redirect()" value ="Send">
+</form>
+</table>	   
+</p>
+</body>
+</html>
+ 

@@ -1,0 +1,70 @@
+<!--The html is from http://srufaculty.sru.edu/david.dailey/cs317/parse2.html and he owns all rights for the html
+I took the html as it was readily available and then wrote the cgi script that is needed for the assignment to be completed-->
+
+
+<html><head>
+
+<script>
+words=new Array("Audi","BMW", "Mercedes", "Ford", "Chevy", "Volkswagen")
+baseurl="http://cs.sru.edu/~cmd5414/cgi/assignment5B.sh"
+function buildform(n){
+	s="<form name='D' action='"+baseurl+"'>"
+	for (i=0;i<n;i++){
+	r=Math.floor(Math.random()*words.length)
+	s+="<input size=8 name='f"+i+"' maxlength=9 value="+words[r]+">"
+	if (i%2==1) 
+	 s+="<BR>"
+}
+s+="</form>"
+document.getElementById("Q").innerHTML=s
+}
+function submit(){
+
+}
+function GETit(){
+document.D.method="GET"
+document.D.submit()
+}
+function POSTit(){
+document.D.method="POST"
+document.D.submit()
+}
+</script>
+<title>Assignment 5 Part B</title>
+</head>
+
+<h3 align="center">Assignment 5 Part B</h3>
+<body onload="buildform(2)">
+<div align="center"><b>
+</b>
+<table border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td>
+<form name="f"> Number of Fields<br>
+To Be Sent:<br>
+<select name="s" onchange="buildform(s.value)">
+	<option value="1">1 </option>
+	<option value="2" selected="selected">2 </option>
+	<option value="3">3 </option>
+	<option value="4">4 </option>
+	<option value="5">5 </option>
+	<option value="6">6 </option></select>
+	</form></td>
+
+<td colspan="2">
+<div id="Q"></div>
+</td></tr>
+
+
+<tr>
+<td><form><input value="Submit" onclick="submit()" type="button"></form>
+</td>
+
+<td align="center"><input value="GET" onclick="GETit()" type="button"></td>
+<td align="center"><input value="POST" onclick="POSTit()" type="button"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</body></html>

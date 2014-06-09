@@ -1,0 +1,43 @@
+<html>
+<body>
+<img id="myImg" src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic1.jpg"  />
+<form name="input">
+<button name="start" onclick="rotate()">Start</button>
+<button name="stop" onclick="stopAnimation()">Stop</button>
+<select id="speed" name="speed">
+  <option value="slow">Slow</option>
+	<option value="medium">Medium</option>
+	<option value="fast">Fast</option>
+</select>
+<script>
+var imgcount = [1, 2, 3, 4]
+var img_index = 0;
+var timer;
+var imgId = "myImg";
+
+function rotate() {
+    me = document.getElementById(imgId);
+    me.src = "http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic" + imgcount[img_index] + ".jpg"
+    img_index++;
+    if (img_index == imgcount.length){
+        img_index = 0;
+    }
+		var sel=document.getElementById("speed");
+		var time=(sel.options[sel.selectedIndex].value);
+		if(time=="slow")
+		{timer = setTimeout(rotate, 5000)}
+		else if(time=="medium")
+		{timer = setTimeout(rotate, 3000)}
+		else if(time=="fast")
+		{timer = setTimeout(rotate, 1000)}
+
+}
+function stopAnimation() {
+    clearTimeout(timer);
+}
+</script>
+</body>
+</html>
+
+
+

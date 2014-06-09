@@ -1,0 +1,24 @@
+<html>
+ <body>
+  <div id="imgrotation">
+        <img src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/largepic1.jpg" >
+        <img src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic2.jpg" >
+        <img src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic3.jpg" >
+        <img src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic4.jpg" >
+        <img src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic5.jpg" >
+	<img src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic6.jpg" >
+  </div>
+<script>
+(function () {
+    var imgs = document.getElementById('imgrotation').getElementsByTagName('img'),
+        index = 0;
+    imgs[0].style.display = 'none';
+    setInterval(function () {
+        imgs[index].style.display = 'none';
+        index = (index + 1) % imgs.length;
+        imgs[index].style.display = 'block';
+    }, 500);
+}());
+</script>
+</body>
+</html>

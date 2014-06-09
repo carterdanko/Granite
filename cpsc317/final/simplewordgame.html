@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+ 
+<html>
+<head>
+<title>Carter Danko Simple Word Game</title>
+<style>
+table{ display:inline; 
+vertical-align:text-top;
+}
+input{width:250px;}
+</style>
+<script> 
+
+var role = "<?php session_start();      echo $_SESSION['pos']; ?>"
+
+var id=""
+for (i=0;i<10;i++){
+	id+=Math.floor(Math.random()*10);
+}
+
+
+function createRequestObject() {
+    var ro;
+    var browser = navigator.appName;
+    if(browser == "Microsoft Internet Explorer"){
+        ro = new ActiveXObject("Microsoft.XMLHTTP");
+    }else{
+        ro = new XMLHttpRequest();
+    }
+    return ro;
+}
+ 
+var http = createRequestObject();
+var url="http://granite.sru.edu/~cmd5414/cpsc317/final/game3.php?"
+function send(data) {
+	if(role=="Player1")
+	{
+	http.open('get', url+"id="+id+"&data="+data);
+    http.onreadystatechange = doSomething;
+	http.send('data');
+	}
+	if(role=="Player2")
+	{
+	http.open('get', url+"id="+id+"&data="+data);
+    http.onreadystatechange = doSomething;
+	http.send('data');
+	}
+	http.open('get', url+"id="+id+"&data="+data);
+    http.onreadystatechange = doSomething;
+	http.send('data');
+}
+ 
+function doSomething() {
+	if(http.readyState == 4){
+	document.getElementById("echo").innerHTML =http.responseText
+	f.st.value=""
+	//f.t.value=""
+	f.s.focus()
+    }
+}
+
+function showrole() {
+alert(role);
+}
+</script>
+</head>
+<body onload="document.f.s.focus()"><div align="center"><H3>
+Carter Danko Simple Word Game</h3>
+<h5>You have 15 guesses total!  Press Reset to start over.</h5></div>
+<br><br>
+<div id="echo" style="color:black" align="center"></div>
+
+
+  <form name="f" action="javascript:send(f.st.value)" align="center">
+  Type "ready" to begin<br>
+  type something in here: <br>
+  <table><tr><td><input name="st" type="text" maxlength="36"></td></tr>
+  <!--<tr><td><input name="t" maxlength="36" onfocus="blur();s.focus()"></td></tr>-->
+  <tr><td><input type="submit" value="submit"></td></tr>
+  </table>
+ 
+  </form>
+  <form name="buttontoreset" action="http://granite.sru.edu/~cmd5414/cpsc317/final/clearout.php" align="center">
+  <input type="submit" value="Reset" name="Reset" align="center">
+  </form>
+  </body>
+</html>
+ 
+

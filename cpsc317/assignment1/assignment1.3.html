@@ -1,0 +1,90 @@
+<html>
+ <body>
+ <script>
+function check()
+ {
+  var rows = document.getElementById("rows").value;
+ 	var columns = document.getElementById("columns").value;
+  if(rows>=11 || columns>=11)
+  {
+   alert("Please input a number less than 10")  	
+  }
+  else if (rows<=2 || columns<=2)
+  {
+   alert("Please input a number more than 3")	
+  }
+  else
+  {
+   createTable()
+  }
+	
+ } 
+ 
+ function createTable()
+ {
+ 	var rows = document.getElementById("rows").value;
+ 	var columns = document.getElementById("columns").value;
+ 	var tableHead = "<table border = '1'>\n";
+ 	var tableBody = " ";
+ 
+
+ 	for(var i=0; i<=rows; i++)
+ 	{
+	 if(i==0)
+	 {
+	  tableBody += "<tr bgcolor='4AA1F7'>";
+	  var total = i
+		tableBody += "<td>";
+	  tableBody += total;
+	  tableBody += "</td>"
+	 }
+	 else
+	 {
+	 tableBody += "<tr>";
+	 tableBody += "<td bgcolor='4AA1F7'>";
+	 tableBody += i;
+	 tableBody += "</td>";
+	 }
+	 for (var j=0; j<columns; j++)
+	 {
+	 if(i>=1)
+	 {
+	  if(j==1 || j==3 || j==5 || j==7)
+		{
+	 	 var total = (i)*(j+1)
+		 tableBody += "<td bgcolor='EAB8FC'>";
+	   tableBody += total;
+	   tableBody += "</td>"	
+		}
+		else
+		{
+		 var total = (i)*(j+1)
+		 tableBody += "<td>";
+	   tableBody += total;
+	   tableBody += "</td>"
+		}
+	 }
+	 else
+	 {
+	  var total = (i+1)*(j+1)
+		 tableBody += "<td>";
+	   tableBody += total;
+	   tableBody += "</td>"	
+	 }
+
+	 
+	 }
+	 tableBody += "</tr>\n";
+ 	}
+	var tableFooter = "</table>";
+	document.getElementById("wrapper").innerHTML = tableHead + tableBody + tableFooter;
+}
+
+ </script>
+ <input id="rows">by<input id="columns">
+ <br>
+ <input type="button" value="Create Table" onclick="check();">
+ <div id="wrapper"></div>
+ </body>
+</html>
+

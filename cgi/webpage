@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<style>
+.time{background:#dfd; margin:1cm}
+.pop{background:#fdd; margin:1cm}
+</style>
+<script>
+function calculate(){
+var T=document.getElementById("time")
+var P12=document.getElementById("pop2012")
+var Pnow=document.getElementById("popnow")
+happytime=new Date();
+ happystring=happytime.toString();
+ T.firstChild.nodeValue=happystring;
+
+ happygiga=happytime.valueOf();
+
+ Y=365
+ D=24
+ H=60
+ M=60
+ secondsinYear=Y*D*H*M
+
+ day=happytime.getDate()
+ month=happytime.getMonth()
+  months=11-month
+	daysuntilDec30=60+31-day
+	if (month==10) daysuntilDec30=60-day
+	secondselapsed=2*secondsinYear-daysuntilDec30*24*60*60
+ popN=315091138+parseInt(secondselapsed/17)
+ firstthree=parseInt(popN/1000000)
+ nextthree=parseInt((popN-firstthree*1000000)/1000)
+ Pnow.firstChild.nodeValue=firstthree+","+nextthree+",000"
+
+}
+</script>
+<title>Untitled</title>
+</head>
+<body onload="calculate()">
+The Current Time is (since the official US Time is indeterminate, owing to a budget shortfall):
+<div class="time" id="time">update this via script</div>
+The US Population was, as of December 30 ,2011 (<a href="http://www.usnews.com/opinion/blogs/robert-schlesinger/2011/12/30/us-population-2012-nearly-313-million-people">source</a>):
+<div id="pop2012" class="pop">315,091,138</div>
+Hence, following the census bureau's estimate that the population increases by 1 every 17 seconds, 
+(owing to births, deaths and immigrations) we may estimate that the population at this moment is
+<div id="popnow" class="pop">update this via script</div>
+</body>
+</html>

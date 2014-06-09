@@ -1,0 +1,20 @@
+#! /bin/sh
+
+linecount=$1
+linecountbefore=`expr $linecount + 1 | bc`
+linecountafter=`expr $linecount - 1 | bc`
+input=$2
+totalline=`wc $2 | cut -d" " -f2`
+titleline=`head -1 $input`
+remainline=`expr $totalline - $linecountbefore`
+echo "<html><title>" >> $input.html
+echo "$titleline" >> $input.html
+echo "</title>" >> $input.html
+echo "<body>" >> $input.html
+echo "<center>" >> $input.html
+head -$linecountbefore $input | tail -$linecountafter >> $input.html
+echo "</center>" >> $input.html
+echo "<pre>" >> $input.html
+tail -$remainline $input >> $input.html
+echo "</pre></body></html>" >> $input.html
+

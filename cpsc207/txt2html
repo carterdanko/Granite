@@ -1,0 +1,44 @@
+#!/bin/sh
+name=`whoami`
+filepath=/tmp/$name.$$
+
+tags=/homes/cmd5414/public_html/cpsc207/htmltags
+
+
+#put html and title in beginning of temp file
+head -2 $tags | cut -f1 > $filepath
+#get first line from input and put inside title
+head -1 $2 >> $filepath
+#closes the title tag
+head -2 $tags | tail -1 | cut -f2 >> $filepath
+#gets center and body tags
+head -4 $tags | tail -2 | cut -f1 >> $filepath
+#get number of lines to be in center
+center=`expr $1 + 1`
+head -$center $2 | tail -$1 >> $filepath
+#closes the center tag
+head -4 $tags | tail -1 | cut -f2 >> $filepath
+#opens the pre tag
+head -5 $tags | tail -1 | cut -f1 >> $filepath
+linecount=`wc -l $2 | cut -f1 -d" "`
+pre=`expr $linecount - $center`
+#puts remaining lines in pre tag
+tail -$pre $2 >> $filepath
+#closes pre tag
+tail -1 $tags | cut -f2 >> $filepath
+#closes body tag
+head -3 $tags | tail -1 | cut -f2 >> $filepath
+#closes html tag
+head -1 $tags | cut -f2 >> $filepath
+
+
+#copys from /tmp/ to where the script was
+cp $filepath $2.html
+#deletes temp file
+rm $filepath
+#mv $filepath $2.html could also be used instead of copy and then delete
+
+
+
+
+

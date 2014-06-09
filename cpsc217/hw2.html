@@ -1,0 +1,75 @@
+
+<html>
+ <head>
+  <title>Currency Converter</title>
+   <body>
+   <h1>Carter Danko</h1>
+   <table border="1">
+   <tr>
+    <th>Dollar</th>
+    <th></th>
+    <th>Euro</th>
+   </tr>
+   <tr>
+    <td><input type="number" id="dollar" name="Dollar">
+    <td>=</td>
+    <td><input type="number" id="euro" name="Euro">
+   </tr>
+   <tr>
+    <td align="center"><button type="button" id="dollarButton" onclick="convertToEuro()"> -> </button></td>
+    <td></td>
+    <td align="center"><button type="button" id="euroButton" onclick="convertToUs()"> <- </button></td>
+   </tr>
+   </table>
+
+ <script>
+/*Carter Danko
+Exchange rate from google searching us to euro and then also taking the number from
+xe.com(the top link from the search)
+*/
+
+  function convertToUs()
+  {
+  var temp=document.getElementById('euro').value
+  //var temp2= parseFloat(document.getElementById('euro').innerHTML);
+	var temp2 = parseFloat(temp)
+  temp2 = temp2*1.35269
+  temp2 = Math.round(temp2*100)/100
+  if(isNaN(temp2)==false)
+  {
+  document.getElementById('dollar').value=temp2
+  }
+  else
+  {
+
+  alert("Please input valid number")
+	document.getElementById('dollar').value=""
+  }
+  }
+
+  function convertToEuro()
+  {
+  var temp=document.getElementById('dollar').value
+  //var temp2= parseFloat(document.getElementById('dollar').innerHTML);
+        var temp2 = parseFloat(temp)
+  temp2 = temp2*0.739269 
+  temp2 = Math.round(temp2*100)/100
+  if(isNaN(temp2)==false)
+  {
+  document.getElementById('euro').value=temp2
+  }
+  else
+  {
+
+  alert("Please input valid number")
+        document.getElementById('euro').value=""
+  }
+  }
+
+ </script>
+
+
+   </body>
+ </head>
+</html>
+

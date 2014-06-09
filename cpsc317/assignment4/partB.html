@@ -1,0 +1,24 @@
+<html>
+<head>
+<script>
+var baseurl="http://granite.sru.edu/~cmd5414/cgi/words.sh"
+
+function redirect()
+{
+ u=baseurl+"?"+document.forms[0].elements[0].value;
+ window.location=u;
+}
+
+
+</script>
+</head>
+<body>
+
+<form method="post" action="javascript:redirect()">
+  <div align="center"><p><input size="3"><br>
+  <input type="button" value="get words" onclick="redirect()"></p>
+  </div>
+</form>
+</body>
+
+</html>

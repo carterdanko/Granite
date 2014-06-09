@@ -1,0 +1,36 @@
+<html>
+ <body>
+  <div id="imgrotation">
+	<a href="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/largepic1.jpg" target="_blank">
+    		<img src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic1.jpg" height="50" width="50" />
+    	</a>
+	<a href="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/largepic2.jpg" target="_blank">
+        	<img src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic2.jpg" hidden >
+	</a>
+	<a href="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/largepic3.jpg" target="_blank">
+        	<img src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic3.jpg" hidden >
+	</a>
+	<a href="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/largepic4.jpg" target="_blank">
+        	<img src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic4.jpg" hidden >
+	</a>
+	<a href="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/largepic5.jpg" target="_blank">
+   		<img src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic5.jpg" hidden>
+	</a>
+	<a href="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/largepic6.jpg" target="_blank">
+		<img src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic6.jpg" hidden>
+	</a>
+  </div>
+<script>
+(function rotation() {
+    var imgs = document.getElementById('imgrotation').getElementsByTagName('img'),
+        index = 0;
+    imgs[0].style.display = 'block';
+    setInterval(function rotation() {
+        imgs[index].style.display = 'none';
+        index = (index + 1) % imgs.length;
+        imgs[index].style.display = 'block';
+    }, 500);
+}());
+</script>
+</body>
+</html>

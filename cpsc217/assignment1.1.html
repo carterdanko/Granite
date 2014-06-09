@@ -1,0 +1,30 @@
+<html>
+ <body>
+  <div id="imgrotation">
+    		<img src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic1.jpg" height="50" width="50" />
+        	<img src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic2.jpg" hidden >
+        	<img src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic3.jpg" hidden >
+        	<img src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic4.jpg" hidden >
+   		<img src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic5.jpg" hidden>
+		<img src="http://cs.sru.edu/~cmd5414/cpsc317/assignment1/smallpic6.jpg" hidden>
+  </div>
+<form name="button">
+<button name="start" onclick="start()">Start</button>
+<button name="stop" onclick="stop()">Stop</button>
+
+
+
+<script>
+(function start() {
+    var imgs = document.getElementById('imgrotation').getElementsByTagName('img'),
+        index = 0;
+    imgs[0].style.display = 'block';
+    setInterval(function start() {
+        imgs[index].style.display = 'none';
+        index = (index + 1) % imgs.length;
+        imgs[index].style.display = 'block';
+    }, 500);
+}());
+</script>
+</body>
+</html>

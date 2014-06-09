@@ -1,0 +1,13 @@
+#!/bin/sh
+gender="/homes/cmd5414/public_html/cpsc317/assignment4"
+first=$gender/dist.male.first
+
+echo $first
+
+
+
+
+
+
+
+
