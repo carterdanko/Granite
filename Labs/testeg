@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cnt=1
+for i in *
+do 
+  echo -ne "$i\t"
+done
+
+
+

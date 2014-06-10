@@ -1,0 +1,70 @@
+#!/bin/sh
+#cmd5414
+#Carter Danko
+fp=~/cpsc207/words
+echo ""
+echo "Problem 1:"
+sed -n s/za/jj/p $fp | head
+echo "sed -n s/za/jj/p $fp | head"
+echo ""
+
+echo "Problem 2:"
+echo "sed -n /quin.*$/s/t/v/gp $fp | head"
+sed -n /quin.*$/s/t/v/gp $fp | head
+
+echo ""
+echo "Problem 3:"
+v=[aeiou]
+cv=[aeuioAEIOU]
+echo "sed -n /^u.*$cv$/s/at*//p $fp | head"
+sed -n /^u.*$cv$/s/at.*$//p $fp | head
+
+echo "v = "$v
+echo "cv = "$cv
+
+echo ""
+echo "Problem 4:"
+echo "sed -n /^$v.*ch$/s/a/x/p $fp | tail"
+sed -n /^$v.*ch$/s/a/x/p $fp | head
+
+echo ""
+echo "Problem 5:"
+echo "sed -n 1,60s/a/x/gp $fp"
+sed -n 1,60s/a/x/gp $fp
+
+echo ""
+echo "Problem 6:"
+echo "sed -n 1,60s/A/Z/2p $fp"
+sed -n 1,60s/A/Z/2p $fp
+
+t=~/cpsc207/datased
+
+echo ""
+#7 creating text file
+echo "Created Text file"
+
+echo ""
+echo "Problem 8:"
+echo "sed -n 's/will*/WILL WIN./p' $t"
+sed -n 's/will*/WILL WIN./p' $t
+
+echo ""
+echo "Problem 9:"
+echo "sed 4,8d $t"
+sed 4,8d $t
+
+echo ""
+echo "Problem 10:"
+echo "sed '9,$d' $t"
+sed '9,$d' $t
+
+
+echo ""
+echo "Problem 11:"
+echo "sed -n /butchered/,/bullets/p $t"
+sed -n /butchered/,/bullets/p $t
+
+
+
+
+

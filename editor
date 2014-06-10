@@ -1,0 +1,39 @@
+#!/bin/sh
+file=$1
+newfile=0
+if [ -e $file ]
+then
+	cp $file $file.temp
+else
+	newfile=1
+        touch $file
+
+fi
+lastMod=`stat -c "%Y" $file`
+nano $file
+modified=`stat -c "%Y" $file`
+if [ $modified -gt $lastMod ]
+then
+	
+	if [ -e $file.old ]
+	then
+		cp $file.old $file.older
+	fi
+	if [ $newfile -lt 1 ]
+	then
+		mv $file.temp $file.old
+	fi
+else
+	if [ -e $file.temp ]
+	then
+		rm $file.temp
+	fi
+	if [ $newfile -gt 0 ]
+	then
+		rm $file
+	fi
+fi
+
+
+
+

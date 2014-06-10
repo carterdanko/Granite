@@ -1,0 +1,10 @@
+Changed the color of the window/theme
+Changed so that "wiggle" is added to the windows when you move them
+Putty added on startup
+Added system monitor to panel
+Added cpu monitor to panel
+Added force quit to application to panel
+Added eyes to the panel
+Added Disk mounting utility
+Made so 2nd desktop has terminal on it while first can be left to browser/file  manager
+

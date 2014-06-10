@@ -1,0 +1,80 @@
+#!/bin/sh
+echo "Carter Danko"
+w=/usr/share/dict/words
+password=/etc/passwd
+
+echo "Problem 1:"
+echo "awk '/zzan/ {print} $w | head"
+awk '/zzan/ {print}' $w | head
+
+echo""
+echo "Problem 2:"
+echo "awk '/^[aeiou].*[ou]rch/ {print} $w | head"
+awk '/^[aeiou].*[ou]rch/ {print}' $w | head
+
+echo ""
+echo "Problem 3:"
+echo "awk '/chevy/ cars"
+awk '/chevy/' cars
+
+echo ""
+echo "Problem 4:"
+echo "awk '$1 ~ /o/' cars"
+awk '$1 ~ /o/' cars
+
+echo ""
+echo "Problem 5:"
+echo "awk '$4 > 45 {print $1, $2}' cars"
+awk '$4 > 45 {print $1, $2}' cars
+
+echo ""
+echo "Problem 6:"
+echo "awk '$5 >= 2000 && $5 <=4000 {print $1, $2}' cars"
+awk '$5 >= 2000 && $5 <=4000 {print $1, $2}' cars
+
+echo ""
+echo "Problem 7:"
+echo "awk '/plym/, /ford/' cars"
+awk '/plym/, /ford/' cars
+
+echo ""
+echo "Problem 8:"
+echo "awk 'length($2) >= 4' cars"
+awk 'length($2) >= 4' cars
+
+echo ""
+echo "Problem 9:"
+echo "awk '{total = total + $5} END {print total}' cars"
+awk '{total = total + $5} END {print total}' cars
+
+echo ""
+echo "Problem 10 & 11"
+echo "awk 'BEGIN {FS = ":"} {fields = fields + NF} END {print "Number of Records = " NR, "Number of fields = " fields}' $password"
+awk 'BEGIN {FS = ":"} {fields = fields + NF} END {print "Number of Records = " NR, "Number of fields = " fields}' $password
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

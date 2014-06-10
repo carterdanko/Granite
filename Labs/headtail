@@ -1,0 +1,5 @@
+#!/bin/sh
+
+w=/usr/share/dict/words
+s=`expr $2 - $1`
+head -$2 $w | tail -$s | wc -c

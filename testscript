@@ -1,0 +1,17 @@
+#!/bin/sh
+awk 'BEGIN { FS = "e" }
+{ print $2 }
+END { print NR }' < ex3
+
+
+
+
+
+
+
+
+
+
+
+
+

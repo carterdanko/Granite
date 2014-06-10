@@ -1,0 +1,4 @@
+7.) The /? switch displays more help information about the command that was before the switch
+8.) /d specifies directories instead of file names
+    /r Recurse through the directory at the specified path, if no directory is specified then the current will be used.
+    /l is a set of numbers from start to end and by step ammount (a,b,c)

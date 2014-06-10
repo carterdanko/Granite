@@ -1,0 +1,31 @@
+#!/bin/sh
+num=$2
+origFile=$1
+file=$1
+response=blank
+
+case $num in
+	1);;
+	2)	file=$file.old;;
+	3)	file=$file.older;;
+	*) 	echo "Please enter a valid version to recover";;
+esac
+if [ -e $file ]
+then
+	cat $file	
+	echo 'Is this the file you wish to restore(y/n)'
+	read response
+	echo "$response"
+	if [ $response = "y" ]
+	then
+		mv $file $origFile
+	elif [ $response = "n" ]
+	then
+		echo "Not restoring the file"
+	else
+		echo "Please enter either a y or n"
+	fi
+else
+	echo "File does not exist"
+	echo "$file"
+fi

@@ -1,0 +1,84 @@
+Carter Danko
+Problem 1:
+awk '/zzan/ {print} /usr/share/dict/words | head
+bezzant
+bezzants
+chazzan
+chazzanim
+chazzans
+chazzanut
+Fezzan
+frizzante
+gozzan
+hazzan
+
+Problem 2:
+awk '/^[aeiou].*[ou]rch/ {print} /usr/share/dict/words | head
+afterchurch
+anorchi
+anorchia
+anorchism
+anorchous
+anorchus
+antechurch
+anteporch
+antichurch
+antichurchian
+
+Problem 3:
+awk '/chevy/ cars
+chevy	nova	79	60	3000
+chevy	nova	80	50	3500
+chevy	impala	65	85	1550
+
+Problem 4:
+awk ' ~ /o/' cars
+ford 	mustang	65	45	10000 ford
+volvo	gl	78	102	9850
+ford	ltd	83	15	10500
+honda	accord	81	30	6000
+ford	thundbd	84	10	17000
+toyota	tercel	82	180	750
+ford	bronco	83	25	9500
+
+Problem 5:
+awk ' > 45 {print , }' cars
+plym fury
+chevy nova
+volvo gl
+chevy nova
+fiat 600
+toyota tercel
+chevy impala
+
+Problem 6:
+awk ' >= 2000 &&  <=4000 {print , }' cars
+plym fury
+chevy nova
+chevy nova
+
+Problem 7:
+awk '/plym/, /ford/' cars
+plym	fury	77	73	2500
+chevy	nova	79	60	3000
+ford 	mustang	65	45	10000 ford
+
+Problem 8:
+awk 'length() >= 4' cars
+plym	fury	77	73	2500
+chevy	nova	79	60	3000
+ford 	mustang	65	45	10000 ford
+chevy	nova	80	50	3500
+honda	accord	81	30	6000
+ford	thundbd	84	10	17000
+toyota	tercel	82	180	750
+chevy	impala	65	85	1550
+ford	bronco	83	25	9500
+
+Problem 9:
+awk '{total = total + } END {print total}' cars
+74600
+
+Problem 10 & 11
+awk 'BEGIN {FS = :} {fields = fields + NF} END {print Number of Records =  NR, Number of fields =  fields}' /etc/passwd
+Number of Records = 380 Number of fields = 2660

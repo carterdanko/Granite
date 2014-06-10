@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ "$1" = "t" ];then
+ echo "t"
+elif [ "$1" = "h" ];then
+echo "h"
+else
+ echo "help"
+fi
+
+
+
+
+

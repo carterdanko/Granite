@@ -1,0 +1,9 @@
+#!/bin/sh
+
+w="/homes/cmd5414/cpsc207/words"
+l="a"
+u="A"
+
+echo $l | tr [:lower] [:upper]
+
+

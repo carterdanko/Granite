@@ -1,0 +1,150 @@
+#!/bin/sh
+#Carter Danko
+
+w=/usr/share/dict/words
+
+echo "Problem 1: 
+grep browns $w | wc -l"
+grep browns $w | wc -l
+
+echo ""
+
+echo "Problem 2:
+grep ^quin.* $w | head"
+grep ^quin.* $w | head
+
+echo ""
+
+echo "Problem 3:
+grep .*rky$ $w | head"
+grep .*rky$ $w | head
+
+echo ""
+
+echo "Problem 4:
+grep ^[A-Z].*ky$ $w | head"
+grep ^[A-Z].*ky$ $w | head
+
+echo ""
+
+echo "Problem 5:
+grep [A-Z] $w | wc -l"
+grep [A-Z] $w | wc -l
+
+echo ""
+
+echo "Problem 6:
+grep [qQ] $w | wc -l"
+grep [qQ] $w | wc -l
+
+echo ""
+
+echo "Problem 7:
+grep -c [qQ] $w"
+grep -c [qQ] $w
+
+
+echo ""
+
+echo "Problem 8:
+grep -c ^SI $w"
+grep -c ^SI $w 
+
+echo ""
+
+echo "Problem 9:
+grep -vc ^SI $w"
+grep -vc ^SI $w
+
+echo ""
+
+echo "Problem 10:
+grep -ivc [aeiou] $w"
+grep -ivc [aeiou] $w 
+
+echo ""
+
+echo "Problem 11:
+v=[aeiou]"
+v=[aeiou]
+echo $v
+
+echo ""
+
+echo "Problem 12:
+grep ^$v.*ky$ $w | head"
+grep ^$v.*ky$ $w | head
+
+echo ""
+
+echo "Problem 13:
+c=[b-df-hj-np-tv-xz]"
+c=[b-df-hj-np-tv-xz]
+echo $c
+
+echo ""
+
+echo "Problem 14:
+grep -c \($c\)\{5\} $w"
+grep -c \($c\)\{5\} $w
+
+echo ""
+
+echo "Problem 15:
+grep -c grep ~cmd5414/.bash_history"
+grep -c grep ~cmd5414/.bash_history
+
+echo ""
+
+echo "Problem 16: 
+grep \"^\($c\)\{3\}\($v\)\{2\}\($c\)\{3\}\" $w | head"
+grep "^\($c\)\{3\}\($v\)\{2\}\($c\)\{3\}" $w | head
+
+
+echo ""
+
+echo "Problem 17:
+grep \"\(..\).*\1\1\" $w | head"
+grep "\(..\).*\1\1" $w | head
+
+
+echo ""
+
+echo "Problem 18:
+grep -c \"^\(.\).*\1$\" $w"
+grep -c "^\(.\).*\1$" $w
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
