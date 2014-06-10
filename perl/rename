@@ -1,0 +1,17 @@
+#!/usr/bin/perl
+# Usage: rename expr [files]
+
+($op = shift)  || die "Usage: rename expr [filenames]\n";
+#print "$op\n";
+if (!@ARGV) {
+	@ARGV = <STDIN>;
+	chop (@ARGV);
+}
+for (@ARGV) {
+	$was = $_;
+	eval $op;	#evaluate $op as a perl program
+	die $@ if $@;
+
+#	print "rename ($was, $_) unless $was eq $_\n";
+	rename ($was, $_) unless $was eq $_;
+}

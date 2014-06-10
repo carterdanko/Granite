@@ -1,0 +1,6 @@
+print "String: ";
+$a = <STDIN>;
+print "Number of times: ";
+chop($b=<STDIN>);
+$c = $a x $b;
+print "The result is:\n$c";

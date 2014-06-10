@@ -1,0 +1,21 @@
+use Time::HiRes qw(gettimeofday);
+$runTimes = @ARGV[0];
+$fileName = @ARGV[1];
+system("$fileName", "> /dev/null");
+if ($? == -1){
+print "This is not a valid file name\n";
+exit;
+}
+if ($runTimes !~ /\d/ or $runTimes <= 0){
+print "Please enter a valid number \n";
+exit;
+}
+
+$beginning = Time::HiRes::gettimeofday();
+$i = 0;
+for($i=0;$i < $runTimes;$i++){
+	system("$fileName", "@ARGV[2]", "@ARGV[3]", "@ARGV[4]");
+}
+$elapsed = ((Time::HiRes::gettimeofday() - $beginning)*1000)/$runTimes;
+printf "%.2f", $elapsed;
+print " milliseconds \n";

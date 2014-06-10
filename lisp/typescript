@@ -1,0 +1,307 @@
+Script started on Fri 28 Oct 2011 01:59:21 PM EDT
+bash-3.2$ clisp -i LispAssign
+  i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo
+  I I I I I I I      8     8   8           8     8     o  8    8
+  I  \ `+' /  I      8         8           8     8        8    8
+   \  `-+-'  /       8         8           8      ooooo   8oooo
+    `-__|__-'        8         8           8           8  8
+        |            8     o   8           8     o     8  8
+  ------+------       ooooo    8oooooo  ooo8ooo   ooooo   8
+
+Welcome to GNU CLISP 2.41.1 (2007-10-12) <http://clisp.cons.org/>
+
+Copyright (c) Bruno Haible, Michael Stoll 1992, 1993
+Copyright (c) Bruno Haible, Marcus Daniels 1994-1997
+Copyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998
+Copyright (c) Bruno Haible, Sam Steingold 1999-2000
+Copyright (c) Sam Steingold, Bruno Haible 2001-2007
+
+Type :h and hit Enter for context help.
+
+;; Loading file LispAssign ...
+"Please print what list you would like to append to" 
+"If you are done inputing data to a particular table" 
+"type done to return to admin mode to continue data input" 
+"When done inputing data completely type exitAdmin" gender
+
+"Enter what you would like to append to the list." intersexual
+
+"Enter what you would like to append to the list." done
+
+"Please print what list you would like to append to" 
+"If you are done inputing data to a particular table" 
+"type done to return to admin mode to continue data input" 
+"When done inputing data completely type exitAdmin" sexual-orientation
+
+"Enter what you would like to append to the list." straight
+
+"Enter what you would like to append to the list." done
+
+"Please print what list you would like to append to" 
+"If you are done inputing data to a particular table" 
+"type done to return to admin mode to continue data input" 
+"When done inputing data completely type exitAdmin" race
+
+"Enter what you would like to append to the list." nativeHawaiian
+
+"Enter what you would like to append to the list." done
+
+"Please print what list you would like to append to" 
+"If you are done inputing data to a particular table" 
+"type done to return to admin mode to continue data input" 
+"When done inputing data completely type exitAdmin" religion
+
+"Enter what you would like to append to the list." atheist
+
+"Enter what you would like to append to the list." agnostic
+
+"Enter what you would like to append to the list." done
+
+"Please print what list you would like to append to" 
+"If you are done inputing data to a particular table" 
+"type done to return to admin mode to continue data input" 
+"When done inputing data completely type exitAdmin" nationality
+
+"Enter what you would like to append to the list." turkish
+
+"Enter what you would like to append to the list." korean
+
+"Enter what you would like to append to the list." australian
+
+"Enter what you would like to append to the list." greek
+
+"Enter what you would like to append to the list." Ca[Kzech
+
+"Enter what you would like to append to the list." SaudiaArabian
+
+"Enter what you would like to append to the list." Hungarian
+
+"Enter what you would like to append to the list." portugese
+
+"Enter what you would like to append to the list." ukrainian
+
+"Enter what you would like to append to the list." iranian
+
+"Enter what you would like to append to the list." done
+
+"Please print what list you would like to append to" 
+"If you are done inputing data to a particular table" 
+"type done to return to admin mode to continue data input" 
+"When done inputing data completely type exitAdmin" exitQA[K[KAdmin
+
+"You are now in data collection mode!" 
+"What data would you like to collect" 
+"When done type done in quotation marks" (german straight male atheist nativeHaw aiiaan[K[Kn)[A"When done type done in quotation marks" 
+aiian)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (africanAmerican female bisexual christ ian african)[A"When done type done in quotation marks" 
+ian african)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (gay male white norwegian atheist)"When done type done in quotation marks" (gay male white norwegian atheist)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (english female straight christian asia n)[A"When done type done in quotation marks" 
+n)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (korean intersexual bisexual white agno stic)[A"When done type done in quotation marks" 
+stic)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (female jewish polish straight latino)"When done type done in quotation marks" (female jewish polish straight latino)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (latino buddhist puertoRican male gay)"When done type done in quotation marks" (latino buddhist puertoRican male gay)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (male white bisexual swedish agnostic)"When done type done in quotation marks" (male white bisexual swedish agnostic)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (straight male africanAmerican british  christian)[A"When done type done in quotation marks" 
+christian)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (female lesbian christian swei[Kdish white )[A"When done type done in quotation marks" 
+)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (africanAmerican male saudiaArabian bis exual muslim)[A"When done type done in quotation marks" 
+exual muslim)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (white female bisexual atheist greek)"When done type done in quotation marks" (white female bisexual atheist greek)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" "done"
+
+GENDER 
+ MALE                 (* * * * * *)       
+ FEMALE               (* * * * *)         
+ INTERSEXUAL          (*)                 
+#######################################
+RACE 
+ WHITE                (* * * * *)         
+ AFRICANAMERICAN      (* * *)             
+ AMERICANINDIAN       NIL                 
+ ASIAN                (*)                 
+ LATINO               (* *)               
+ NATIVEHAWAIIAN       (*)                 
+#######################################
+SEXUAL-ORIENTATION 
+ GAY                  (* *)               
+ LESBIAN              (*)                 
+ BISEXUAL             (* * * * *)         
+ STRAIGHT             (* * * *)           
+#######################################
+NATIONALITY 
+ ENGLISH              (*)                 
+ GERMAN               (*)                 
+ ITALIAN              NIL                 
+ IRISH                NIL                 
+ MEXICAN              NIL                 
+ JAPANESE             NIL                 
+ PUERTORICAN          (*)                 
+ FRENCH               NIL                 
+ POLISH               (*)                 
+ SCOTTICH             NIL                 
+ DUTCH                NIL                 
+ SWEDISH              (* *)               
+ NORWEGIAN            (*)                 
+ BRITISH              (*)                 
+ WELSH                NIL                 
+ AFRICAN              (*)                 
+ AMERICAN             NIL                 
+ CHINESE              NIL                 
+ TURKISH              NIL                 
+ KOREAN               (*)                 
+ AUSTRALIAN           NIL                 
+ GREEK                (*)                 
+ CZECH                NIL                 
+ SAUDIAARABIAN        (*)                 
+ HUNGARIAN            NIL                 
+ PORTUGESE            NIL                 
+ UKRAINIAN            NIL                 
+ IRANIAN              NIL                 
+#######################################
+RELIGION 
+ JEWISH               (*)                 
+ MUSLIM               (*)                 
+ BUDDHIST             (*)                 
+ ATHEIST              (* * *)             
+ AGNOSTIC             (* *)               
+#######################################
+;; Loaded file LispAssign
+[1]> (quit)[1]> (quit)
+Bye.
+bash-3.2$ exit
+exit
+
+Script done on Fri 28 Oct 2011 02:04:38 PM EDT
+" 
+"When done type done in quotation marks" (africanAmerican female bisexual christ ian african)[A"When done type done in quotation marks" 
+ian african)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (gay male white norwegian atheist)"When done type done in quotation marks" (gay male white norwegian atheist)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (english female straight christian asia n)[A"When done type done in quotation marks" 
+n)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (korean intersexual bisexual white agno stic)[A"When done type done in quotation marks" 
+stic)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (female jewish polish straight latino)"When done type done in quotation marks" (female jewish polish straight latino)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (latino buddhist puertoRican male gay)"When done type done in quotation marks" (latino buddhist puertoRican male gay)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (male white bisexual swedish agnostic)"When done type done in quotation marks" (male white bisexual swedish agnostic)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (straight male africanAmerican british  christian)[A"When done type done in quotation marks" 
+christian)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (female lesbian christian swei[Kdish white )[A"When done type done in quotation marks" 
+)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (africanAmerican male saudiaArabian bis exual muslim)[A"When done type done in quotation marks" 
+exual muslim)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" (white female bisexual atheist greek)"When done type done in quotation marks" (white female bisexual atheist greek)
+
+"What data would you like to collect" 
+"When done type done in quotation marks" "done"
+
+GENDER 
+ MALE                 (* * * * * *)       
+ FEMALE               (* * * * *)         
+ INTERSEXUAL          (*)                 
+#######################################
+RACE 
+ WHITE                (* * * * *)         
+ AFRICANAMERICAN      (* * *)             
+ AMERICANINDIAN       NIL                 
+ ASIAN                (*)                 
+ LATINO               (* *)               
+ NATIVEHAWAIIAN       (*)                 
+#######################################
+SEXUAL-ORIENTATION 
+ GAY                  (* *)               
+ LESBIAN              (*)                 
+ BISEXUAL             (* * * * *)         
+ STRAIGHT             (* * * *)           
+#######################################
+NATIONALITY 
+ ENGLISH              (*)                 
+ GERMAN               (*)                 
+ ITALIAN              NIL                 
+ IRISH                NIL                 
+ MEXICAN              NIL                 
+ JAPANESE             NIL                 
+ PUERTORICAN          (*)                 
+ FRENCH               NIL                 
+ POLISH               (*)                 
+ SCOTTICH             NIL                 
+ DUTCH                NIL                 
+ SWEDISH              (* *)               
+ NORWEGIAN            (*)                 
+ BRITISH              (*)                 
+ WELSH                NIL                 
+ AFRICAN              (*)                 
+ AMERICAN             NIL                 
+ CHINESE              NIL                 
+ TURKISH              NIL                 
+ KOREAN               (*)                 
+ AUSTRALIAN           NIL                 
+ GREEK                (*)                 
+ CZECH                NIL                 
+ SAUDIAARABIAN        (*)                 
+ HUNGARIAN            NIL                 
+ PORTUGESE            NIL                 
+ UKRAINIAN            NIL                 
+ IRANIAN              NIL                 
+#######################################
+RELIGION 
+ JEWISH               (*)                 
+ MUSLIM               (*)                 
+ BUDDHIST             (*)                 
+ ATHEIST              (* * *)             
+ AGNOSTIC             (* *)               
+#######################################
+;; Loaded file LispAssign
+[1]> (quit)[1]> (quit)
+Bye.
+bash-3.2$ exit
+exit
+Script done, file is typescript
+bash-3.2$ nano typescript
+(B)0[1;24r[m[?7h[?1h=[?1h=[?1h=[H[J[0;7m  GNU nano 1.3.12             File: typescript                                  [3;1H[mScript started on Fri 28 Oct 2011 01:59:21 PM EDT[1Bbash-3.2$ clisp -i LispAssign[1B  i i i i i i i[7Cooooo    o[5;41Hooooooo   ooooo   ooooo[1B  I I I I I I I[6C8     8   8[6;44H8     8     o  8    8[1B  I  \ `+' /  I[6C8[7;32H8[7;44H8     8[7;59H8    8[1B   \  `-+-'  /[7C8[8;32H8[8;44H8	  ooooo   8oooo[1B[59D`-__|__-'[9;22H8[9;32H8[9;44H8[9;56H8  8[10;9H|[10;22H8     o   8[10;44H8     o     8  8[1B  ------+------[7Cooooo    8oooooo  ooo8ooo   ooooo   8[2BWelcome to GNU CLISP 2.41.1 (2007-10-12) <http://clisp.cons.org/>[2BCopyright (c) Bruno Haible, Michael Stoll 1992, 1993[1BCopyright (c) Bruno Haible, Marcus Daniels 1994-1997[1BCopyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998[1BCopyright (c) Bruno Haible, Sam Steingold 1999-2000[1BCopyright (c) Sam Steingold, Bruno Haible 2001-2007[2BType :h and hit Enter for context help.[22;14H[0;7m[ Read 336 lines (Converted from DOS and Mac format) ][1B^G[m Get Help  [0;7m^O[m WriteOut  [0;7m^R[m Read File [0;7m^Y[m Prev Page [0;7m^K[m Cut Text  [0;7m^C[m Cur Pos[1B[0;7m^X[m Exit[6C[0;7m^J[m Justify   [0;7m^W[m Where Is  [0;7m^V[m Next Page [0;7m^U[m UnCut Text[0;7m^T[m To Spell[21A[24;1H[?1l>[1;53r[m[?7h[H[J[24B[J[H[0;7m  GNU nano 1.3.12             File: typescript                                  [m[K[1B[K[1BScript started on Fri 28 Oct 2011 01:59:21 PM EDT[K[1Bbash-3.2$ clisp -i LispAssign[K[1B  i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo[K[1B  I I I I I I I      8     8   8           8     8     o  8    8[K[1B  I  \ `+' /  I      8         8           8     8        8    8[K[1B   \  `-+-'  /       8         8           8      ooooo   8oooo[K[1B    `-__|__-'        8         8           8           8  8[K[1B        |            8     o   8           8     o     8  8[K[1B  ------+------       ooooo    8oooooo  ooo8ooo   ooooo   8[K[1B[K[1BWelcome to GNU CLISP 2.41.1 (2007-10-12) <http://clisp.cons.org/>[K[1B[K[1BCopyright (c) Bruno Haible, Michael Stoll 1992, 1993[K[1BCopyright (c) Bruno Haible, Marcus Daniels 1994-1997[K[1BCopyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998[K[1BCopyright (c) Bruno Haible, Sam Steingold 1999-2000[K[1BCopyright (c) Sam Steingold, Bruno Haible 2001-2007[K[1B[K[1BType :h and hit Enter for context help.[K[1B             [0;7m[ Read 336 lines (Converted from DOS and Mac format) ][m[K[1B[0;7m^G[m Get Help  [0;7m^O[m WriteOut  [0;7m^R[m Read File [0;7m^Y[m Prev Page [0;7m^K[m Cut Text  [0;7m^C[m Cur Pos[K[1B[0;7m^X[m Exit      [0;7m^J[m Justify   [0;7m^W[m Where Is  [0;7m^V[m Next Page [0;7m^U[m UnCut Text[0;7m^T[m To Spell[K[21A[?1h=[?1h=[?1h=[H[J[0;7m  GNU nano 1.3.12             File: typescript                                  [2B[mScript started on Fri 28 Oct 2011 01:59:21 PM EDT[1Bbash-3.2$ clisp -i LispAssign[1B  i i i i i i i[7Cooooo    o[5;41Hooooooo   ooooo   ooooo[1B  I I I I I I I[6C8     8   8[6;44H8     8     o  8    8[1B  I  \ `+' /  I[6C8[7;32H8[7;44H8     8[7;59H8    8[1B   \  `-+-'  /[7C8[8;32H8[8;44H8	  ooooo   8oooo[1B[59D`-__|__-'[9;22H8[9;32H8[9;44H8[9;56H8  8[10;9H|[10;22H8     o   8[10;44H8     o     8  8[1B  ------+------[7Cooooo    8oooooo  ooo8ooo   ooooo   8[2BWelcome to GNU CLISP 2.41.1 (2007-10-12) <http://clisp.cons.org/>[2BCopyright (c) Bruno Haible, Michael Stoll 1992, 1993[1BCopyright (c) Bruno Haible, Marcus Daniels 1994-1997[1BCopyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998[1BCopyright (c) Bruno Haible, Sam Steingold 1999-2000[1BCopyright (c) Sam Steingold, Bruno Haible 2001-2007[2BType :h and hit Enter for context help.[22;14H[0;7m[ Read 336 lines (Converted from DOS and Mac format) ][1B^G[m Get Help  [0;7m^O[m WriteOut  [0;7m^R[m Read File [0;7m^Y[m Prev Page [0;7m^K[m Cut Text  [0;7m^C[m Cur Pos[1B[0;7m^X[m Exit[6C[0;7m^J[m Justify   [0;7m^W[m Where Is  [0;7m^V[m Next Page [0;7m^U[m UnCut Text[0;7m^T[m To Spell[21A[1;31H[0;7m                [1;64HFile: typescript                                                                                                   [22;1H[m[K[1B;; Loading file LispAssign ...[K[1B"Please print what list you would like to append to"[K[1B"If you are done inputing data to a particular table"[1B"type done to return to admin mode to continue data input"[1B"When done inputing data completely type exitAdmin" gender[2B"Enter what you would like to append to the list." intersexual[2B"Enter what you would like to append to the list." done[2B"Please print what list you would like to append to"[1B"If you are done inputing data to a particular table"[1B"type done to return to admin mode to continue data input"[1B"When done inputing data completely type exitAdmin" sexual-orientation[2B"Enter what you would like to append to the list." straight[2B"Enter what you would like to append to the list." done[2B"Please print what list you would like to append to"[1B"If you are done inputing data to a particular table"[1B"type done to return to admin mode to continue data input"[1B"When done inputing data completely type exitAdmin" race[2B"Enter what you would like to append to the list." nativeHawaiian[2B"Enter what you would like to append to the list." done[3B[0;7m^G[m Get Help[52;30H[0;7m^O[m WriteOut[52;59H[0;7m^R[m Read File[52;88H[0;7m^Y[m Prev Page[52;117H[0;7m^K[m Cut Text[52;146H[0;7m^C[m Cur Pos[1B[0;7m^X[m Exit[53;30H[0;7m^J[m Justify[53;59H[0;7m^W[m Where Is[53;88H[0;7m^V[m Next Page[53;117H[0;7m^U[m UnCut Text[53;146H[0;7m^T[m To Spell[50A"Enter what you would like to append to the list." done[1B[K[1B"Please print what list you would like to append to"           [1B"If you are done inputing data to a particular table"           [1B"type done to return to admin mode to continue data input"      [1B"When done inputing data completely type exitAdmin" religion   [1B[K[1B"Enter what you would like to append to the list." atheist [1B[K[1B"Enter what you would like to append to the list." agnostic[1B[K[1B"Enter what you would like to append to the list." done[1B[K[1B"Please print what list you would like to append to"[1B"If you are done inputing data to a particular table"             [1B"type done to return to admin mode to continue data input"[1B"When done inputing data completely type exitAdmin" nationality[2B"Enter what you would like to append to the list." turkish[2B"Enter what you would like to append to the list." korean[1B[K[1B"Enter what you would like to append to the list." australian[1B[K[1B"Enter what you would like to append to the list." greek  [29;52HCa^H^[[Kzech[31;52HSaudiaArabian[2B"Enter what you would like to append to the list." Hungarian[1B[K[1B"Enter what you would like to append to the list." portugese[1B[K[1B"Enter what you would like to append to the list." ukrainian[1B[K[1B"Enter what you would like to append to the list." iranian[1B[K[1B"Enter what you would like to append to the list." done[1B[K[1B"Please print what list you would like to append to" [1B"If you are done inputing data to a particular table"     [1B"type	ne to return to admin mode to continue data input"[1B"When done inputing data completely type exitAdmin" exitQA^H^[[K^H^[[KAdmin[1B[K[1B"You are now in data collection mode!"[1B"What data would you like to collect"                  [1B"When done type done in quotation marks" (german straight male atheist nativeHaw[47A"What data would you like to collect"                  [1B"When done type done in quotation marks" (german straight male atheist nativeHaw[1Baiiaan^H^[[K^H^[[Kn)^[[A[K[1B"When done type done in quotation marks"             [1B[K[1B[K[1Baiian)[1B[K[1B"What data would you like to collect"[1B"When done type done in quotation marks" (africanAmerican female bisexual christ[1Bian african)^[[A[1B"When done type done in quotation marks"               [2B[K[1Bian african)[K[1B[K[1B"What data would you like to collect"[K[1B"When done type done in quotation marks" (gay male white norwegian atheist)^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H[1B"When done type done in quotation marks" (gay male white norwegian atheist)[2B"What data would you like to collect"[K[1B"When done type done in quotation marks" (english female straight christian asia[1Bn)^[[A[K[1B"When done type done in quotation marks"[1B[K[2Bn)[K[2BWhat data would you like to collect"[K[1B"When done type done in quotation marks" (korean intersexual bisexual white agno[1Bstic)^[[A[K[1B"When done type done in quotation marks"[1B[K[2Bstic)[K[2B"What data would you like to collect"[K[1B"When done type done in quotation marks" (female jewish polish straight latino)^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H[1B"When done type done in quotation marks" (female jewish polish straight latino)[2B"What data would you like to collect"               [1B"When done type done in quotation marks" (latino buddhist puertoRican male gay)^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H[1B"When[7Cype done in quotation marks" (latino buddhist puertoRican male gay)[1B[K[1B"What data would you like to collect"[1B"When done type done in quotation marks" (male white bisexual swedish agnostic)^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H[1B"When done type done in quotation marks" (male white bisexual swedish agnostic)[1B[K[47A"When done type done in quotation marks" (male white bisexual swedish agnostic)[1B[K[1B"What data would you like to collect"[1B	 (straight male africanAmerican british[1Bchristian)^[[A[1B"When done type done in quotation marks"[1B[K[2Bchristian)[K[1B[K[1B"What data would you like to collect"[1B	 (female lesbian christian swei^H^[[Kdish white[1B)^[[A[1B"When done type done in quotation marks"[1B[K[2B)[K[1B[K[1B"What data would you like to collect"[K[1B"When done type done in quotation marks" (africanAmerican male saudiaArabian bis[1Bexual muslim)^[[A[K[24;42H[K[1B[K[1B[K[1Bexual muslim)[2B"What data would you like to collect"[1B"When done type done in quotation marks" (white female bisexual atheist greek)^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H[1B"When done type done in quotation marks" (white female bisexual atheist greek)[1B[K[1B"What data would you like to collect"[1B	 "done"[2BGENDER[1B MALE[37;23H(* * * * * *)[1B FEMALE[38;23H(* * * * *)[1B INTERSEXUAL          (*)            [1B#######################################[K[1BRACE[K[1B WHITE[42;23H(* * * * *)[1B AFRICANAMERICAN      (* * *)        [1B AMERICANINDIAN       NIL[K[1B ASIAN                (*)[K[1B LATINO[46;23H(* *)[1B NATIVEHAWAIIAN       (*)            [1B#######################################[K[1BSEXUAL-ORIENTATION[K[1B GAY[50;23H(* *)[47ASEXUAL-ORIENTATION[K[1B GAY[4;23H(* *)[1B LESBIAN              (*)            [1B BISEXUAL             (* * * * *)[K[1B STRAIGHT     [7;23H(* * * *)[1B####################################### [1BNATIONALITY[1B ENGLISH[10;23H(*)[1B GERMAN   [11;23H(*)[1B ITALIAN[12;23HNIL[1B IRISH                NIL            [1B MEXICAN              NIL[K[1B JAPANESE[15;23HNIL[1B PUERTORICAN          (*)               [1B FRENCH[17;23HNIL[1B POLISH[18;23H(*)[1B SCOTTICH[19;23HNIL[1B DUTCH[20;23HNIL[1B SWEDISH              (* *)          [1B NORWEGIAN            (*)[K[1B BRITISH              (*)[1B WELSH                NIL               [1B AFRICAN[25;23H(*)[1B AMERICAN[26;23HNIL[1B CHINESE     [27;23HNIL[1B TURKISH[28;23HNIL[1B KOREAN               (*)            [1B AUSTRALIAN           NIL[K[1B GREEK                (*)[K[1B CZECH[32;23HNIL[1B SAUDIAARABIAN        (*)            [1B HUNGARIAN            NIL[K[1B PORTUGESE[35;23HNIL[1B UKRAINIAN[36;23HNIL[1B IRANIAN[37;23HNIL          [1B#######################################[1BRELIGION    [39;23H   [1B JEWISH               (*)              [1B MUSLIM[41;23H(*)[1B BUDDHIST[42;25H)        [1B ATHEIST        [1B AGNOSTIC      [7C(* *)[1B#######################################[1B;; Loaded file LispAssign  [1B[1]> (quit)^H^H^H^H^H^H  [1B[1]> (quit)[K[1BBye.              [1Bbash-3.2$ exit[50;23H     [47A"When done type done in quotation marks" (male white bisexual swedish agnostic)[1B[K[1B"What data would you like to collect"[1B"When done type done in quotation marks" (straight male africanAmerican british[1Bchristian)^[[A[7;23H         [1B"When done type done in quotation marks"[1B[K[1B[K[1Bchristian)[11;23H   [1B[K[1B"What data would you like to collect"[1B"When done type done in quotation marks" (female lesbian christian swei^H^[[Kdish white[1B)^[[A[K[1B"When done type done in quotation marks"[1B[K[1B[K[1B)[K[1B[K[1B"What data would you like to collect"[1B"When done type done in quotation marks" (africanAmerican male saudiaArabian bis[1Bexual muslim)^[[A        [1B"When done type done in quotation marks"[1B[K[1B[K[1Bexual muslim)[27;23H   [1B[K[1B"What data would you like to collect"[1B"When done type done in quotation marks" (white female bisexual atheist greek)^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H[1B"When done type done in quotation marks" (white female bisexual atheist greek)[1B[K[1B"What data would you like to collect"[1B"When done type done in quotation marks" "done"[1B[K[1BGENDER[K[1B MALE   [37;23H(* * * * * *)[1B FEMALE               (* * * * *)      [1B INTERSEXUAL[39;23H(*)[1B#######################################[1BRACE[K[1B WHITE   [42;25H * * * *)[1B AFRICANAMERICAN[1B AMERICANINDIAN[7CNIL  [1B ASIAN                (*)              [1B LATINO               (* *)[1B NATIVEHAWAIIAN       (*)[1B#######################################[1BSEXUAL-ORIENTATION[1B GAY          [50;23H(* *)[47A[2;50r[2;1HMMMMMMMMMMMMMMMMMMMMMMMM[1;53r[3;1Hn)^[[A[1B"When done type done in quotation marks"[3Bn)[2B"What data would you like to collect"[1B"When done type done in quotation marks" (korean intersexual bisexual white agno[1Bstic)^[[A[1B"When done type done in quotation marks"[3Bstic)[2B"What data would you like to collect"[1B"When done type done in quotation marks" (female jewish polis

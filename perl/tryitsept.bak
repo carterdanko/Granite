@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+print "hello\n";
+if (-e $ARGV[0])
+{
+   print "yes\n";
+   system ("cp $ARGV[0] $ARGV[0].bak");
+}
+else
+{
+  print "no\n";
+}

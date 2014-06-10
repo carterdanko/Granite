@@ -1,0 +1,14 @@
+#!/usr/bin/perl
+open (PAGE, ">>logfile");    #open for append
+   print PAGE "Howdy you'all\n";
+close (PAGE);
+
+open (PAGE, ">as1.page.html"); #open to over write
+   print PAGE "li> a href=\"a link\">\n";
+close (PAGE);
+
+open (START, "as1.start.html"); #open to read
+while ($line = <START>) {
+   print PAGE $line;
+}
+close (START);

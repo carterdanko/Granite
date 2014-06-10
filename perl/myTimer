@@ -1,0 +1,22 @@
+$check = true;
+$runTimes = 0;
+while($check eq true){
+print "How many times should the exe run? ";
+$runTimes = <STDIN>;
+chop($runTimes);
+if($runTimes !~  /\D/){
+    $check = false;
+    }
+else{
+   print "Please enter a valid integer \n";   
+}}
+print "$runTimes \n";
+$fileName = "";
+while($check eq false){
+  print "What is the file name? ";
+  $fileName = <STDIN>;
+  chop($fileName);
+  $check = true;
+}
+print "$fileName \n";
+system($fileName);

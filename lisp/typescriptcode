@@ -1,0 +1,94 @@
+Script started on Fri 28 Oct 2011 02:50:00 PM EDT
+bash-3.00$ cat LispAssign
+;Carter Danko
+;LispAssignment
+(setf gender '(gender male female))
+(setf race '(race white africanAmerican americanIndian asian latino))
+(setf sexual-orientation '(sexual-orientation gay lesbian bisexual))
+(setf nationality '(nationality english german italian irish mexican 
+	japanese 
+	puertoRican french polish scottich dutch swedish norwegian british 
+	welsh 
+	african american chinese))
+(setf religion '(religion jewish muslim buddhist))
+(setf master (cons gender(cons race(cons sexual-orientation(cons 
+	nationality(cons religion nil))))))
+(setf datacollection nil)
+
+
+(setf list nil)
+(setf input nil)
+(setf adminMode 'false)
+(setf userMode 'false)
+
+(loop
+(when (string= adminMode 'true)(return))
+
+	(print "Please print what list you would like to append to")
+	(print "If you are done inputing data to a particular table")
+	(print "type done to return to admin mode to continue data input")
+	(print "When done inputing data completely type exitAdmin")
+	(setf x (read *terminal-io*))
+	(when (string= x 'exitAdmin)(return))
+
+
+(dotimes (k (list-length master))
+  (if (string= x (car(nth k master)))
+     (loop
+	(setf list (nth k master))
+	(print "Enter what you would like to append to the list.")
+	(setf input(read *terminal-io*))
+	(when(string= input 'done)(return))
+	(setf(nth k master) (append list(cons input nil)))
+     )
+  )
+))
+
+(print "You are now in data collection mode!")
+(setf done "done")
+(setf graph nil)
+(setf inputdata nil)
+(loop
+	(print "What data would you like to collect")
+	(print "When done type done in quotation marks")
+	(setf inputdata(read *terminal-io*))
+	(when (equal inputdata done)(return))
+	(setf datacollection(append datacollection inputdata nil))	
+)
+
+(setf empty nil)
+
+(dotimes (k (list-length master))
+   (setf graph(append graph(cons(cons(car(nth k master))nil)nil)))
+     (dotimes (j (1- (list-length (nth k master))))
+	(setf (nth k graph) (append (nth k graph) (cons empty nil)))
+  )
+)
+
+(setf check nil)
+(dotimes (k (list-length master)) 
+     (dotimes (j (list-length (nth k master)))
+	(if (equal j 0) (setf j (1+ j)))
+	(setf check(nth j (nth k master)))
+	(dotimes (i (list-length datacollection))
+	   (if (string= check (nth i datacollection))
+		(setf (nth j (nth k graph)) (append (nth j (nth k graph)) '(*)))
+	)
+     )
+   )
+)
+
+(dotimes (k (list-length master))
+   (print (car (nth k graph)))
+     (dotimes (j (list-length (nth k master)))
+	(if (equal j 0) (setf j (1+ j)))
+	(format t "~% ~20S ~20A"(nth j(nth k master)) (nth j(nth k graph)))
+     )
+     (format t "~%#######################################" )
+   
+)
+		
+bash-3.00$ exit
+exit
+
+Script done on Fri 28 Oct 2011 02:50:07 PM EDT

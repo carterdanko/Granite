@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+print "What is the radius: ";
+$radius= <STDIN>;
+chop($radius);
+$pi = 3.1415;
+$result = 2 * $pi * $radius;
+print "radius $radius its circumference $result\n";

@@ -1,0 +1,30 @@
+      program omp
+      integer matrixOne, matrixTwo, vectorOne, vectorTwo, i, j, chunk
+      PARAMETER (SIZE = 10)
+      CHUNK = 10
+
+
+      real matrixOne(size,size), matrixTwo(size,size)
+      real vectorOne(size), vectorTwo(size)
+      real matrixMatmul(size,size), vectorResult(size)      
+      real matrixTranspose(size, size), vectorShift(size)
+  
+
+!$OMP PARALLEL SHARED(matrixOne,matrixTwo,vectorOne,vectorTwo,chunk) PRIVATE(i,j)
+
+!$OMP DO SCHEDULE(static, chunk)
+      DO 30 i =1, size
+
+!$OMP DO SCHEDULE(STATIC, CHUNK)
+      DO 30 i=1, size
+	DO 30 i=1, size
+	  matrixOne(i,j) = (
+
+
+
+
+      matrixMatmul = matmul(matrixOne, matrixTwo)
+      matrixTranspose = transpose(matrixTwo)
+      vectorShift = cshift(vectorOne,10)
+
+      end program fortran

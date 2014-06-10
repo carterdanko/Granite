@@ -1,0 +1,4 @@
+#!/usr/bin/perl
+system(" whoami > logfile ");
+
+system ("mail whit<logfile");

@@ -1,0 +1,10 @@
+#!/usr/bin/perl
+print "hello\n";
+if ($ARGV[1]==1)
+{
+   print "yes\n";
+}
+else
+{
+  print "no\n";
+}

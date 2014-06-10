@@ -1,0 +1,20 @@
+      program omp
+      PARAMETER (SIZE = 10)
+      
+      real matrixOne(size,size), matrixTwo(size,size)
+      real vectorOne(size), vectorTwo(size)
+      real matrixMatmul(size,size), vectorResult(size)      
+      real matrixTranspose(size, size), vectorShift(size)
+
+!$OMP PARALLEL SHARDED(matrixOne,matrixTwo,vectorOne,v
+
+!$OMP DO SCHEDULE(STATIC, CHUNK
+
+
+
+
+      matrixMatmul = matmul(matrixOne, matrixTwo)
+      matrixTranspose = transpose(matrixTwo)
+      vectorShift = cshift(vectorOne,10)
+
+      end program fortran

@@ -1,0 +1,30 @@
+The number of runtimes was 3 and number of parameters was 3
+1.15 milliseconds on average 
+3.46 Total milliseconds 
+The number of runtimes was 25 and number of parameters was 
+7.00 milliseconds on average 
+174.95 Total milliseconds 
+The number of runtimes was 3 and number of parameters was 3
+1.33 milliseconds on average 
+4.00 Total milliseconds 
+The number of runtimes was 3 and number of parameters was 3
+1.20 milliseconds on average 
+3.62 Total milliseconds 
+The number of runtimes was 25 and number of parameters was 
+6.68 milliseconds on average 
+166.93 Total milliseconds 
+The number of runtimes was 25 and number of parameters was 
+6.65 milliseconds on average 
+166.35 Total milliseconds 
+The number of runtimes was 3 and number of parameters was 3
+1.35 milliseconds on average 
+4.07 Total milliseconds 
+The number of runtimes was 3 and number of parameters was 3
+1.26 milliseconds on average 
+3.78 Total milliseconds 
+The number of runtimes was 5 and number of parameters was 5
+1.10 milliseconds on average 
+5.51 Total milliseconds 
+The number of runtimes was 10 and number of parameters was 10
+11.75 milliseconds on average 
+117.55 Total milliseconds 

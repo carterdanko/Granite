@@ -1,0 +1,92 @@
+#!/usr/bin/perl
+$difficulty=($ARGV[$0] || "med");
+$difficulty =~s/(...).*/$1/;
+$difficulty =~tr/A-Z/a-z/;
+%level = (eas,8,med,10,har,12);
+%prob = (eas,20,med,30,har,40);
+
+$me=getlogin.".score";
+open (scorefile, ">>$me");
+
+$type=&displayMenu();
+$max = $level{$difficulty };
+srand(time|$$);
+system clear;
+
+($sec,$min,$hour,$mday) = localtime(time);
+for ($i=1; $i <= $prob{$difficulty}; $i++)
+{
+    $val1=int(rand($max)) + 1;
+    $val2=int(rand($max)) + 1;
+    if ($type eq "add" )
+	{ $ans=$val1+$val2; 
+	  $cnt += &calc("+", $val1, $val2, $ans);
+	}
+    elsif ($type eq "sub")
+	{ $ans=$val1+$val2; 
+	  $cnt += &calc("-", $ans, $val2, $val1);
+	}
+    elsif ($type eq "mul")
+	{ $ans=$val1*$val2; 
+	  $cnt += &calc("*", $val1, $val2, $ans);
+	}
+    else
+	{ $ans=$val1*$val2; 
+	  $cnt += &calc("/", $ans, $val2, $val1);
+	}
+}
+($sec2,$min2,$hour2,$mday2,$mon) = localtime(time);
+print "You answered:\n\t $cnt correctly out of $prob{$difficulty}\n\t in ";
+print scorefile "$mon/$mday2\t$type\t$cnt\t$prob{$difficulty}\t";
+if ($sec2 < $sec) { $sec2 += 60; $min2--; }
+if ($min2 < $min) { $min2 += 60; $hour2--; }
+if ($hour2 < $hour) { $hour2 += 24; }
+if ($hour2-$hour > 0) { print $hour2-$hour," hours"; }
+print scorefile $hour2-$hour, "\t";
+if ($min2-$min > 0) { print $min2-$min," minutes ";}
+print scorefile $min2-$min, "\t";
+if ($sec2-$sec > 0) { print $sec2-$sec, " seconds"; }
+print scorefile $sec2-$sec;
+print scorefile "\n";
+print "\n";
+
+close scorefile;
+
+
+#time, #correct, #problems, difficulty, date
+sub calc {
+	local ($type, $val1, $val2, $ans) = @_;
+    $resp = "";
+    while ($resp eq "") {
+	print "\t$val1 $type $val2 = ";
+	$resp = <STDIN>;
+	chop $resp;
+    }
+	if ($resp == $ans) {
+		print "\t\tRIGHT!\n"; 
+		1; 
+	} else { 
+		print "\t\tNope. :-(\n";
+		0;
+	}
+
+}
+
+sub displayMenu()
+{
+  %options = ("add",1, "sub",1, "mul",1, "div",1 );
+  print "\t\t*** Selection Menu ***\n\n";
+  print "\t\t\tAdd\n\t\t\tSubtract\n\t\t\tMultiply\n\t\t\tDivide\n";
+  while ()
+  {
+  	print "\n\t\tEnter Choice ==> ";
+	$res=<STDIN>;
+	chop($res);
+	$res =~s/(...).*/$1/;
+	$res =~tr/A-Z/a-z/;
+	if ($options{$res} == 1) 
+		{ last; }
+	print "\n\tInvalid selection\n";
+  }
+$res;
+}

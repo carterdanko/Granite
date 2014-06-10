@@ -1,0 +1,39 @@
+;Carter Danko
+(setf gender '(gender male female))
+(setf race '(race white africanAmerican americanIndian asian latino))
+(setf sexual-orientation '(sexual-orientation gay lesbian bisexual))
+(setf nationality '(nationality english german italian irish mexican 
+japanese 
+puertoRican french polish scottich dutch swedish norwegian british welsh 
+african american chinese))
+(setf religion '(religion jewish muslim buddhist))
+(setf master (cons gender(cons race(cons sexual-orientation(cons 
+nationality(cons religion nil))))))
+(print "Welcome to admin mode")
+(print "To exit from a certain list type the word done")
+(print "To exit from admin mode type exitAdmin")
+(print "Print what list you would like to append to please")
+
+
+(setf x (read *terminal-io*))
+(setf list nil)
+
+(dotimes (k (list-length master))
+  (if (string= x (car(nth k master)))
+     (loop
+	(
+	(setf list (nth k master)))
+     )
+  )
+)
+
+(print "What would you like to append to that list")
+(setf input(read *terminal-io*))
+
+;(setf master (append list(cons input(cons master nil)) ))
+
+;(dotimes (k (list-length master))
+   ;(if (string= x (car (nth k master)))
+	;(setf (nth k master)(append list(cons input nil))))))
+
+;(setf (nth k master)(append list(cons input nil)))

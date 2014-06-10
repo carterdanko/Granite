@@ -1,0 +1,5 @@
+#!/usr/bin/perl
+print "hello\n";
+foreach $i (0..$#ARGV){
+ print $ARGV[$i], "\n";
+}

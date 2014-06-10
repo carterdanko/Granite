@@ -1,0 +1,55 @@
+Script started on Sun Apr  9 10:34:07 2000
+bash$ cat rename
+#!/var/local/bin/perl
+# Usage: rename expr [files]
+
+($op = shift)  || die "Usage: rename expr [filenames]\n";
+#print "$op\n";
+if (!@ARGV) {
+	@ARGV = <STDIN>;
+	chop (@ARGV);
+}
+for (@ARGV) {
+	$was = $_;
+	eval $op;	#evaluate $op as a perl program
+	die $@ if $@;
+
+#	print "rename ($was, $_) unless $was eq $_\n";
+	rename ($was, $_) unless $was eq $_;
+}
+bash$ ls
+circle      secret1     secret3     secret5     secret7     typescript
+rename      secret2     secret4     secret6     strings     wordlist
+bash$ rename 'tr/A-Z/a-z/' *
+bash$ ls
+circle      secret1     secret3     secret5     secret7     typescript
+rename      secret2     secret4     secret6     strings     wordlist
+bash$ rename tr/   'tr/a-z/A-Z/' *
+bash$ ls
+CIRCLE      SECRET1     SECRET3     SECRET5     SECRET7     TYPESCRIPT
+RENAME      SECRET2     SECRET4     SECRET6     STRINGS     WORDLIST
+bash$ echo OOPS renames d "renmae   ame"
+OOPS renamed rename
+bash$ rename 'tr/A-Z/a-z/' *
+sh: rename: command not found
+bash$ RENAME 'tr/A-Z/a-z/' *
+bash$ ls
+circle      secret1     secret3     secret5     secret7     typescript
+rename      secret2     secret4     secret6     strings     wordlist
+bash$ exit
+exit
+
+script done on Sun Apr  9 10:35:52 2000
+Script started on Sun Apr  9 10:38:57 2000
+bash$ rename
+Usage: rename expr [filenames]
+bash$ rename 'tr/a-z/bi-za/'
+circle
+bash$ ls
+djsdmf      secret1     secret4     secret7     wordlist
+rename      secret2     secret5     strings
+rename.out  secret3     secret6     typescript
+bash$ exit
+exit
+
+script done on Sun Apr  9 10:39:42 2000
