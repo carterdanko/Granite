@@ -1,0 +1,101 @@
+
+
+
+*******************************************************************
+*                                                                 *
+*              WELCOME TO OPERATING SYSTEM PROJECT               *
+*                         Release 1.7                             *
+*                                                                 *
+*******************************************************************
+
+
+
+Copyright (C) 1990  The Research Foundation of SUNY,
+		    Michael Kifer and Scott S. Smolka
+
+(see $HOME/LICENCE for terms and conditions)
+
+
+
+
+================  Summary of Simulation Parameters  ===============
+
+Intensity of New Process Creation               = 5
+Average CPU Time per Process                    = 100
+Overall Frequency of Events                     = 5
+  Share of Memory Related Events                   = 4
+  Share of I/O Related Events                      = 2
+  Share of Resource Related Events                 = 2
+  Share of Socket Related Events                   = 2
+Socket simulation mode                             = stream and dgram
+CPU Time Quantum                                = 80
+Degree of Prepaging                             = 2
+Memory Reference Pattern                        = random
+Deadlock Handling Method                        = avoidance
+Simulation Time                                 = 10000
+Number of Snapshots                             = 5
+Trace Switch                                    = on
+Type of Run                                     = noninteractive
+
+
+
+====================  Beginning of Simulation  ====================
+
+
+CLOCK>     87# SIMCORE: PCB 0 created and enqueued to ready queue
+CLOCK>     87# CPU: dispatch(pcb=0), prepaging 
+CLOCK>     87# CPU: dispatch(pcb=0), process dispatched
+CLOCK>     88# SIMCORE: refer(store,pcb=0,addr=1745,page=3)
+CLOCK>     88# SIMCORE: page fault in refer(pcb=0,page=3)
+Entered refer****************************************************************
+
+CLOCK>     88# SIMCORE: siodrum (pcb=0,page=3,read) - pagefault/prepage/lock
+CLOCK>     88# SIMCORE: swap_in(pcb=0,page=3,into_frame=0)
+frame 0          pageID 3 ********************************************************
+
+CLOCK>     96# CPU: PCB 0 put off to the ready queue
+			 before dispatching another process
+CLOCK>     96# CPU: dispatch(pcb=0), prepaging 
+CLOCK>     96# CPU: dispatch(pcb=0), process dispatched
+Exit refer.......................
+CLOCK>     99# SIMCORE: refer(store,pcb=0,addr=2038,page=3)
+Entered refer****************************************************************
+
+CLOCK>     99# CPU: PCB 0 put off to the ready queue
+			 before dispatching another process
+CLOCK>     99# CPU: dispatch(pcb=0), prepaging 
+CLOCK>     99# CPU: dispatch(pcb=0), process dispatched
+Exit refer.......................
+CLOCK>     99#*** ERROR: SIMCORE>
+		after refer request:
+		Last dispatch time of PCB 0 inconsistent with SIMCORE's.
+		Possible causes:
+			- An interrupt should have been caused but wasn't
+			- Multiple calls to 'dispatch'
+			  in nested invokations of 'gen_int_handler'
+			- 'last_dispatch' set prior to prepaging.
+
+
+
+
+
+                       S I M C O R E   P C B   T A B L E 
+*****************************************************************************
+*  PCB  Size  Created  Last dispatch  Last burst  Accum CPU  Status   Prior *
+*---------------------------------------------------------------------------*
+*    0  4464       87             96           1          1  running    142 *
+*****************************************************************************
+
+
+
+                          Y O U R   P C B   T A B L E 
+*****************************************************************************
+*  PCB  Size  Created  Last dispatch  Last burst  Accum CPU  Status   Prior *
+*---------------------------------------------------------------------------*
+*    0  4464       87             99           3          4  running    153 *
+*****************************************************************************
+
+
+*** Simulation Aborted ***
+
+*** Running OSP with the trace option 'on' may help find the bug ***

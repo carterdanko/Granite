@@ -1,0 +1,373 @@
+
+/****************************************************************************/
+/*                                                                          */
+/* 			     Module MEMORY                                  */
+/* 			External Declarations 	                            */
+/*                                                                          */
+/****************************************************************************/
+
+
+/* OSP constants */
+
+#define MAX_PAGE       16                 /* max size of page tables        */
+#define MAX_FRAME      32                 /* size of the physical memory    */
+#define PAGE_SIZE      512                /* size of a page in bytes        */
+
+#define   COST_OF_PAGE_TRANSFER      6  /* cost of reading page  from drum  */
+
+
+/* external enumeration constants */
+
+typedef enum {
+    false, true                         /* the boolean data type            */
+} BOOL;
+
+typedef enum {
+    read, write                         /* type of actions for I/O requests */
+} IO_ACTION;
+
+typedef enum {
+    load, store                         /* types of memory reference        */
+} REFER_ACTION;
+
+typedef enum {
+    running, ready, waiting, done       /* types of status                  */
+} STATUS;
+
+typedef enum {
+    iosvc, devint,                      /* types of interrupt               */
+    pagefault, startsvc,
+    termsvc, killsvc,
+    waitsvc, sigsvc, timeint
+} INT_TYPE;
+
+
+
+/* external type definitions */
+
+typedef struct page_entry_node PAGE_ENTRY;
+typedef struct page_tbl_node PAGE_TBL;
+typedef struct event_node EVENT;
+typedef struct ofile_node OFILE;
+typedef struct pcb_node PCB;
+typedef struct iorb_node IORB;
+typedef struct int_vector_node INT_VECTOR;
+typedef struct frame_node FRAME;
+
+
+
+/* external data structures */
+
+extern struct frame_node {
+    BOOL   free;        /* = true, if free                                  */
+    PCB    *pcb;        /* process to which the frame currently belongs     */
+    int    page_id;     /* vitrual page id - an index to the PCB's page tbl */
+    BOOL   dirty;       /* indicates if the frame has been modified         */
+    int    lock_count;  /* number of locks set on page involved in an       */
+                        /* active I/O                                       */
+    int    *hook;       /* can hook up anything here                        */
+};
+
+extern struct page_entry_node {
+    int    frame_id;    /* frame id holding this page                       */
+    BOOL   valid;       /* page in main memory : valid = true; not : false  */
+    int    *hook;       /* can hook up anything here                        */
+};
+
+extern struct page_tbl_node {
+    PCB    *pcb;        /* PCB of the process in question                   */
+    PAGE_ENTRY page_entry[MAX_PAGE];
+    int    *hook;       /* can hook up anything here                        */
+};
+
+extern struct pcb_node {
+    int    pcb_id;         /* PCB id                                        */
+    int    size;           /* process size in bytes; assigned by SIMCORE    */
+    int    creation_time;  /* assigned by SIMCORE                           */
+    int    last_dispatch;  /* last time the process was dispatched          */
+    int    last_cpuburst;  /* length of the previous cpu burst              */
+    int    accumulated_cpu;/* accumulated CPU time                          */
+    PAGE_TBL *page_tbl;    /* page table associated with the PCB            */
+    STATUS status;         /* status of process                             */
+    EVENT  *event;         /* event upon which process may be suspended     */
+    int    priority;       /* user-defined priority; used for scheduling    */
+    PCB    *next;          /* next pcb in whatever queue                    */
+    PCB    *prev;          /* previous pcb in whatever queue                */
+    int    *hook;          /* can hook up anything here                     */
+};
+
+extern struct iorb_node {
+    int    iorb_id;     /* iorb id                                          */
+    int    dev_id;      /* associated device; index into the device table   */
+    IO_ACTION action;   /* read/write                                       */
+    int    block_id;    /* block involved in the I/O                        */
+    int    page_id;     /* buffer page in the main memory                   */
+    PCB    *pcb;        /* PCB of the process that issued the request       */
+    EVENT  *event;      /* event used to synchronize processes with I/O     */
+    OFILE  *file;       /* associated entry in the open files table         */
+    IORB   *next;       /* next iorb in the device queue                    */
+    IORB   *prev;       /* previous iorb in the device queue                */
+    int    *hook;       /* can hook up anything here                        */
+};
+
+extern struct int_vector_node {
+    INT_TYPE cause;           /* cause of interrupt                         */
+    PCB    *pcb;              /* PCB to be started (if startsvc) or pcb that*/
+			      /* caused page fault (if fagefault interrupt) */
+    int    page_id;           /* page causing pagefault                     */
+    int    dev_id;            /* device causing devint                      */
+    EVENT  *event;            /* event involved in waitsvc and sigsvc calls */
+    IORB   *iorb;             /* IORB involved in iosvc call                */
+};
+
+/* extern variables */
+
+extern INT_VECTOR Int_Vector;           /* interrupt vector         	     */
+extern PAGE_TBL *PTBR;                  /* page table base register 	     */
+extern FRAME Frame_Tbl[MAX_FRAME];      /* frame table              	     */
+extern int Prepage_Degree;		/* global degree of prepaging (0-10) */
+
+/* external routines */
+
+extern siodrum(/* action, pcb, page_id, frame_id */);
+/*  IO_ACTION   action;
+    PCB         *pcb; 
+    int         page_id, frame_id;  */
+extern int get_clock();
+extern gen_int_handler();
+
+
+/* end of module */
+
+/* external routines */
+int FreePages;
+//extern prepage(/* pcb */);
+
+extern int start_cost(/* pcb */);
+/*  PCB    *pcb; */    
+
+extern set_timer(/* time_quantum */);
+/*  int    time_quantum; */
+
+extern int get_clock();
+
+/****************************************************************************/
+/*                                                                          */
+/*                                                                          */
+/*                              Module MEMORY                               */
+/*                            Internal Routines                             */
+/*                                                                          */
+/*                                                                          */
+/****************************************************************************/
+
+void memory_init()
+{
+/* Clear out the frame table, initialize time-stamp information */
+/*A structure used to record the access times of frames could be initialized here for example.*/
+//Access times are used to implement lru algorithim 
+	FreePages = MAX_FRAME;
+
+}
+
+void prepage(pcb)
+PCB *pcb;
+{
+//Prepages the process given as an argument
+
+}
+
+int start_cost(pcb)
+PCB *pcb;
+{
+	/* simply return the cost of a single page transfer */
+
+	int numPages = pcb->size / PAGE_SIZE;
+	int remainingPage = pcb->size % PAGE_SIZE;
+	if(remainingPage > 0)
+		numPages++;
+	
+	//GLOBAL FreePages;
+	int cost;
+	
+	if(MAX_FRAME - FreePages + numPages > MAX_FRAME)	
+		cost = (numPages - FreePages) * COST_OF_PAGE_TRANSFER;
+		//This is the cost of swapping the pages out of mem if there isn't 
+		//Enough free pages
+
+	cost += numPages * COST_OF_PAGE_TRANSFER;	
+	//The cost of swapping pages in	
+
+	//Start_Cost = #swapOut * COST_OF_PAGE_TRANSFER + swapIn * COST_OF_PAGE_TRANSFER
+
+}
+
+void deallocate(pcb)
+PCB *pcb;
+{
+	int i=0;
+	for(i;i<MAX_PAGE;i++)
+	{
+		if(pcb->page_tbl->page_entry[i].valid)
+		{
+			Frame_Tbl[pcb->page_tbl->page_entry[i].frame_id].free = true;
+			pcb->page_tbl->page_entry[i].valid = false;			
+		}		
+	}
+}
+
+
+void get_page(pcb,page_id)
+PCB *pcb;
+int page_id;
+{
+	int i = 0;
+	BOOL found;
+	for (;i < MAX_FRAME; i++)
+	{
+		if(Frame_Tbl[i].pcb == pcb && Frame_Tbl[i].page_id == page_id)
+		//TODO: Do you need to also check the valid bit?
+		{
+			found = true;
+			return;
+		}
+	}
+	
+	//If the func gets here, that means the page wasn't found
+	
+	//Implement a free page LinkedList
+	if(FreePages > 0)
+	{
+		int i;
+		for(i = 0; i < MAX_FRAME; i++)
+		{
+			if(Frame_Tbl[i].free == 1)
+			//if the frame table is free
+			{
+				siodrum(read, pcb, page_id, i);
+				//TODO:Do I need to set the frame info or does siodrum do that?
+				
+				FreePages--;
+				return;
+			}
+		}	
+	}
+	//If the prog gets here that means the page was not in memory
+	//and that there are no free pages.
+	//That means you have to swap out a current page to disk and read 
+	//The wanted one in.
+
+	int stupidRandom = rand() % MAX_FRAME;
+
+	FRAME test = Frame_Tbl[stupidRandom];
+
+	//TODO: Check if the lockCount is not 0
+
+	if(test.dirty == true)
+		siodrum(write, test.pcb, test.page_id, stupidRandom);
+
+	//TODO: Possibly update the pcb->page table to let it know that it isn't
+	//in a frame anymore
+
+	siodrum(read, pcb, page_id, stupidRandom);
+	
+
+	/*
+		If the page is already loaded, we don't need to do anything.
+	 	If the page isn't loaded, we need to find a frame for this page.
+		We first check for an unlocked free frame that doesn't belong to any process.
+		If there are none of those, then we pick the frame from another
+		process that has the smallest time stamp.
+
+		If we picked a frame from another process we must update the info.
+		for that page, potentially writing it back out (using siodrum)
+
+		Now update the info. for the new page, potentially reading it in from disk
+		(again using siodrum), also updating the frame table.
+ 	*/ 	
+
+
+
+}
+
+
+
+void lock_page(iorb)
+IORB *iorb;
+{
+	getPage(iorb->pcb);
+	Frame_Tbl[iorb->pcb->page_tbl[iorb->page_id]->frame_id].lock_count++;
+	//Ummm?
+	
+	/* Load the page if it isn't already in memory.
+	
+	  As best I can figure out, OSP simulates a drum used by the medium-term
+		scheduler, swapping out parts of running processes. The copy of pages
+		in memory must be kept consistant with the copy on the drum, so if a
+		frame is locked for use with an I/O read from disk into memory, it's
+		corresponding page on the drum would be different.
+	  Because of the above reasons, if the I/O action is a read, mark the frame
+		as dirty.  If you don't do this, OSP generates an error, since its intenal
+		tables then become different from the user's tables.
+
+	  Increment the lock count, since a page could be used in multiple I/O
+		requests at a time. 	
+	*/
+
+
+
+}
+
+
+
+void unlock_page(iorb)
+IORB  *iorb;
+{
+/* decrement the lock count */
+	Frame_Tbl[iorb->pcb->page_tbl[iorb->page_id]->frame_id].lock_count--;	
+	
+
+}
+
+
+
+void refer(logic_addr,action)
+int logic_addr;
+REFER_ACTION action;
+{
+	if(PTBR->page_entry[logic_addr].valid == true)
+	{
+		if(action==store)
+			Frame_Tbl[PTBR->page_entry[logic_addr].frame_id].dirty = true;
+	} 		
+	else
+	{
+		Int_Vector.cause = pagefault;
+		Int_Vector.page_id = logic_addr;
+		Int_Vector.pcb = PTBR->pcb;
+		gen_int_handler();		
+	}
+
+
+/* 	Compute which page the logical address falls in.
+
+		If the page is not in memory, generate a page fault (see p. 25
+		paragraph 2 of OSP manual for this)
+		
+		Mark page as dirty if we're writing to it.
+	*/
+/*	Convert logical (virtual) address into real address: 
+	use the virtual address to obtain a page id which is used to index the process's page table. 
+ 	Check the page table's entry using the page id: if the
+	valid bit in the process's page table is false OR the
+	valid bit is true and the page frame is assigned 
+	to another process, the page is not in memory 
+  	If the page is not in memory cause a page fault: 
+ 	Set the fields of Int_Vector to indicate the cause
+	as a page fault and the page id and pcb causing the page fault. 
+ 	Invoke gen_int_handler(). Note: this may change the currently
+	scheduled process (PTBR->pcb), so saving this before the interrupt may be a good idea. 
+  	The page should be in memory by this stage: if the action is 
+	store (write), set the dirty flag of the page frame. 
+*/
+
+}
